@@ -3,7 +3,7 @@ version: '3.8'
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: seo_postgres
+    container_name: seorankpulse_postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-seo_user}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-seo_password}
@@ -20,7 +20,7 @@ services:
 
   redis:
     image: redis:7-alpine
-    container_name: seo_redis
+    container_name: seorankpulse_redis
     ports:
       - "6379:6379"
     volumes:
@@ -33,7 +33,7 @@ services:
 
   neo4j:
     image: neo4j:5-community
-    container_name: seo_neo4j
+    container_name: seorankpulse_neo4j
     environment:
       NEO4J_AUTH: ${NEO4J_USER:-neo4j}/${NEO4J_PASSWORD:-neo4j_password}
       NEO4J_PLUGINS: '["apoc", "graph-data-science"]'
@@ -54,7 +54,7 @@ services:
 
   elasticsearch:
     image: elasticsearch:8.12.0
-    container_name: seo_elasticsearch
+    container_name: seorankpulse_elasticsearch
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=false
@@ -74,7 +74,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: seo_backend
+    container_name: seorankpulse_backend
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
     ports:
       - "8000:8000"
@@ -105,7 +105,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: seo_celery_worker
+    container_name: seorankpulse_celery_worker
     command: celery -A app.workers.celery_app worker --loglevel=info --concurrency=4
     volumes:
       - ./backend:/app
@@ -129,7 +129,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: seo_celery_beat
+    container_name: seorankpulse_celery_beat
     command: celery -A app.workers.celery_app beat --loglevel=info
     volumes:
       - ./backend:/app
@@ -145,7 +145,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: seo_frontend
+    container_name: seorankpulse_frontend
     volumes:
       - ./frontend:/app
       - /app/node_modules
@@ -158,7 +158,7 @@ services:
     build:
       context: ./nginx
       dockerfile: Dockerfile
-    container_name: seo_nginx
+    container_name: seorankpulse_nginx
     ports:
       - "80:80"
     depends_on:
@@ -168,7 +168,7 @@ services:
 
   playwright:
     image: mcr.microsoft.com/playwright:v1.41.2-focal
-    container_name: seo_playwright
+    container_name: seorankpulse_playwright
     command: tail -f /dev/null
     volumes:
       - ./backend:/app
@@ -178,7 +178,7 @@ services:
 
   flower:
     image: mher/flower:latest
-    container_name: seo_flower
+    container_name: seorankpulse_flower
     command: celery -A app.workers.celery_app flower --port=5555
     ports:
       - "127.0.0.1:5555:5555"

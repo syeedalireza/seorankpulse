@@ -5,11 +5,11 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
       <div className="max-w-5xl w-full text-center">
         <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          SEO Analysis Platform
+          SEORankPulse
         </h1>
         
         <p className="text-xl text-muted-foreground mb-8">
-          Enterprise-grade SEO analysis with AI-powered insights
+          The Ultimate AI-Powered SEO Analysis Platform
         </p>
         
         <div className="flex gap-4 justify-center">

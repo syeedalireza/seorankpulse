@@ -2,7 +2,7 @@
 
 ## خلاصه پروژه
 
-**SEO Analysis Platform** - یک ابزار تحلیل سئوی پیشرفته و enterprise-grade
+**SEORankPulse** - یک ابزار تحلیل سئوی پیشرفته و enterprise-grade
 
 ### ✅ تمام بخش‌های پیاده‌سازی شده:
 

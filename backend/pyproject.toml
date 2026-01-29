@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "seo-analysis-platform"
+name = "seorankpulse"
 version = "1.0.0"
-description = "Enterprise-grade SEO analysis platform with AI-powered insights"
-authors = ["Your Name <your.email@example.com>"]
+description = "SEORankPulse - Enterprise-grade SEO analysis platform with AI-powered insights"
+authors = ["SEORankPulse Team <info@seorankpulse.com>"]
 readme = "README.md"
 license = "MIT"
 

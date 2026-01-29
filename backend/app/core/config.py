@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     )
 
     # Application
-    APP_NAME: str = "SEO Analysis Platform"
+    APP_NAME: str = "SEORankPulse"
     ENVIRONMENT: str = "development"
     DEBUG: bool = True
     API_V1_PREFIX: str = "/api/v1"

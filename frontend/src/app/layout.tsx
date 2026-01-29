@@ -6,8 +6,8 @@ import { Providers } from './providers';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'SEO Analysis Platform',
-  description: 'Enterprise-grade SEO analysis with AI-powered insights',
+  title: 'SEORankPulse - AI-Powered SEO Analysis',
+  description: 'Enterprise-grade SEO analysis platform with AI-powered insights and advanced rank tracking',
 };
 
 export default function RootLayout({
