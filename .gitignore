@@ -48,6 +48,13 @@ htmlcov/
 *.db
 *.sqlite3
 
+# Database volumes (Docker)
+postgres_data/
+redis_data/
+neo4j_data/
+neo4j_logs/
+elasticsearch_data/
+
 # Logs
 *.log
 logs/
@@ -66,6 +73,7 @@ out/
 .pnpm-debug.log*
 .yarn-integrity
 .npm
+*.tsbuildinfo
 
 # Build artifacts
 *.pyc
@@ -83,14 +91,33 @@ alembic/versions/*.pyc
 celerybeat-schedule
 celerybeat.pid
 
-# Neo4j
-neo4j_data/
-neo4j_logs/
-
-# Elasticsearch
-elasticsearch_data/
-
 # Misc
 .cursor/
 *.bak
 *.tmp
+
+# Persian/Farsi documentation files (not for GitHub)
+START_HERE.md
+DEPLOYMENT_GUIDE.md
+QUICKSTART.md
+RUN_LOCAL.md
+TROUBLESHOOTING.md
+STARTUP_GUIDE.md
+MANUAL_SETUP.md
+COMPLETE_SUMMARY.md
+FINAL_STATUS.md
+IMPLEMENTATION_COMPLETE.md
+IMPLEMENTATION_SUMMARY.md
+PROJECT_SUMMARY.md
+REBRANDING_COMPLETE.md
+SCREAMING_FROG_FEATURES_IMPLEMENTED.md
+
+# Heavy/temporary files
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.zip
+*.tar.gz
+*.rar
+*.7z

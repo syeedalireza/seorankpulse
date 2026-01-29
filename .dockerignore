@@ -1,0 +1,58 @@
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation (not needed in containers)
+*.md
+docs/
+
+# Environment files
+.env.local
+.env.*.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Build artifacts (host)
+dist/
+build/
+*.pyc
+*.pyo
+__pycache__/
+
+# Database volumes
+postgres_data/
+redis_data/
+neo4j_data/
+neo4j_logs/
+elasticsearch_data/
+
+# Heavy files
+*.mp4
+*.avi
+*.mov
+*.zip
+*.tar.gz
+
+# Development
+.cursor/
+*.bak
+*.tmp

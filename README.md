@@ -1,259 +1,183 @@
-# 🚀 SEORankPulse
+# SEORankPulse
 
-**The Ultimate AI-Powered SEO Analysis Platform**
+A comprehensive SEO analysis platform that combines traditional technical auditing with modern AI-powered insights. Built as a portfolio project to demonstrate full-stack development skills with enterprise-grade architecture.
 
-A cutting-edge, enterprise-grade SEO analysis tool built with modern technologies and best practices. SEORankPulse provides comprehensive technical SEO audits, AI-driven content analysis, and advanced link graph visualization to help you dominate search rankings.
+## What It Does
 
-## ✨ Key Features
+SEORankPulse crawls websites and provides detailed SEO analysis reports. Think of it as a self-hosted alternative to tools like Screaming Frog or Sitebulb, but with added AI capabilities for content analysis and semantic understanding.
 
-### 🔍 Advanced Web Crawler
-- Asynchronous crawling with JavaScript rendering support
-- Intelligent robots.txt and sitemap.xml parsing
-- Resume capability for interrupted crawls
-- Rate limiting and politeness controls
+The platform handles everything from basic technical SEO (broken links, meta tags, redirects) to advanced features like graph-based link analysis, duplicate content detection, and AI-driven content scoring.
 
-### 🤖 AI-Powered Analysis
-- **Semantic Content Analysis**: Using Hugging Face transformers for meaning extraction
-- **Named Entity Recognition**: Automatic extraction of persons, locations, and organizations
-- **Sentiment Analysis**: Content tone evaluation with Google Cloud NLP
-- **Topic Modeling**: Automatic content categorization
+## Core Features
 
-### 📊 Link Graph Intelligence
-- Neo4j-powered graph database for link structure
-- Internal PageRank calculation
-- Hub and Authority page identification
+**Web Crawler**
+- Asynchronous crawling engine built with Python's httpx and asyncio
+- JavaScript rendering support via Playwright for SPAs
+- Respects robots.txt and handles rate limiting
+- Can resume interrupted crawls
+
+**Technical SEO Analysis**
+- HTTP status codes and redirect chains
+- Meta tags and heading structure validation
+- Image optimization checks (file size, alt tags)
+- Core Web Vitals integration via Lighthouse
+- Duplicate content detection using fuzzy hashing
+
+**AI-Powered Analysis**
+- Content semantic analysis with Hugging Face transformers
+- Named entity recognition for topic extraction
+- Sentiment analysis via Google Cloud NLP
+- Automated alt text generation for images
+
+**Link Graph Analysis**
+- Internal link structure stored in Neo4j graph database
+- PageRank calculation to identify important pages
 - Orphan page detection
-- Visual graph representation
+- Hub and authority identification
 
-### 🎯 Technical SEO Audits
-- HTTP status code analysis (404s, redirects, errors)
-- Meta tags validation (title, description)
-- Heading structure analysis
-- Image alt tag verification
-- Duplicate content detection
-- Core Web Vitals monitoring
+**Additional Tools**
+- SERP tracking for keyword positions
+- Google Search Console integration
+- Competitive gap analysis
+- Server log analysis
+- Excel/sitemap export
 
-### 📈 Comprehensive Dashboard
-- Real-time crawl status monitoring
-- Interactive data visualizations
-- Exportable reports (PDF/Excel)
-- Multi-project management
-- API key management
+## Tech Stack
 
----
+Built with technologies I wanted to learn and demonstrate proficiency in:
 
-## 🎯 Why SEORankPulse?
+**Backend**
+- FastAPI for async REST APIs
+- PostgreSQL (SQLAlchemy 2.0 async ORM)
+- Neo4j for graph data
+- Elasticsearch for full-text search
+- Redis + Celery for background jobs
+- Alembic for database migrations
 
-### 🚀 **Real-Time Intelligence**
-Unlike traditional SEO tools that give you historical data, SEORankPulse monitors your rankings and site health in real-time, alerting you to issues before they impact your traffic.
+**Frontend**
+- Next.js 14 with App Router
+- TypeScript throughout
+- Tailwind CSS + Shadcn/UI components
+- Recharts for data visualization
 
-### 🤖 **AI-Powered Insights**
-Go beyond basic metrics. Our AI analyzes content semantics, detects topics, performs entity recognition, and gives you actionable recommendations.
+**Infrastructure**
+- Fully dockerized with docker-compose
+- Nginx as reverse proxy
+- GitHub Actions for CI/CD
+- Environment-based configuration
 
-### 📊 **Visual Link Intelligence**
-See your site's link structure as a graph. Identify hub pages, find orphaned content, and calculate internal PageRank automatically.
+## Getting Started
 
-### 🔧 **Self-Hosted & Flexible**
-No data caps, no per-seat pricing. Deploy on your infrastructure and customize to your needs.
+You'll need Docker and Docker Compose installed.
 
----
-
-## 🛠️ Technology Stack
-
-### Backend
-- **FastAPI**: High-performance async Python web framework
-- **PostgreSQL**: Primary relational database
-- **Neo4j**: Graph database for link analysis
-- **Elasticsearch**: Full-text search and content indexing
-- **Redis**: Task queue and caching
-- **Celery**: Distributed task processing
-- **SQLAlchemy 2.0**: Async ORM
-- **Pydantic v2**: Data validation
-
-### Frontend
-- **Next.js 14**: React framework with App Router
-- **TypeScript**: Type-safe JavaScript
-- **Shadcn/UI**: Modern component library
-- **TailwindCSS**: Utility-first CSS framework
-- **Recharts & D3.js**: Interactive data visualization
-- **Zustand**: Lightweight state management
-- **React Query**: Server state management
-
-### AI/ML Services
-- **Hugging Face Inference API**: NLP models
-- **Google Cloud Natural Language API**: Advanced text analysis
-- **OpenAI API**: Content generation (optional)
-
-## 📦 Installation
-
-### Prerequisites
-- Docker & Docker Compose
-- Git
-
-### Quick Start
-
-1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/seo-analysis-platform.git
-cd seo-analysis-platform
-```
+# Clone the repo
+git clone https://github.com/syeedalireza/seorankpulse.git
+cd seorankpulse
 
-2. **Set up environment variables**
-```bash
+# Copy environment template
 cp .env.example .env
-# Edit .env and add your API keys
-```
 
-3. **Start the services**
-```bash
+# Edit .env and add your API keys if you want AI features
+# The platform works without them, just won't have AI analysis
+
+# Start everything
 docker-compose up -d
+
+# Wait a minute for databases to initialize, then visit:
+# http://localhost - Frontend dashboard
+# http://localhost/api/docs - API documentation
 ```
 
-4. **Access the platform**
-- Frontend Dashboard: http://localhost:3000
-- Backend API: http://localhost:8000
-- API Documentation: http://localhost:8000/docs
-- Neo4j Browser: http://localhost:7474
+The first startup takes a few minutes while Docker pulls images and initializes databases.
 
-## 🏗️ Architecture
+## Development Setup
 
-```
-┌─────────────────┐
-│  Next.js UI     │
-└────────┬────────┘
-         │
-         │ REST API
-         │
-┌────────▼────────┐
-│  FastAPI        │
-│  API Gateway    │
-└────────┬────────┘
-         │
-    ┌────┴────┬──────────┬──────────┐
-    │         │          │          │
-┌───▼───┐ ┌──▼──┐ ┌─────▼────┐ ┌──▼────┐
-│Crawler│ │AI   │ │Graph     │ │Keyword│
-│Service│ │Anal-│ │Analysis  │ │Tracker│
-│       │ │yzer │ │          │ │       │
-└───┬───┘ └──┬──┘ └─────┬────┘ └──┬────┘
-    │        │          │         │
-    │     ┌──▼──────────▼─────────▼──┐
-    │     │  Celery Workers + Redis  │
-    │     └──┬──────────┬────────────┘
-    │        │          │
-┌───▼────┬───▼───┐ ┌───▼────┐
-│Postgre │ Neo4j │ │Elastic │
-│SQL     │ Graph │ │search  │
-└────────┴───────┘ └────────┘
-```
+If you want to run services locally for development:
 
-## 🔧 Development
-
-### Backend Setup
-
+**Backend**
 ```bash
 cd backend
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-
-# Run migrations
 alembic upgrade head
-
-# Start development server
 uvicorn app.main:app --reload
 ```
 
-### Frontend Setup
-
+**Frontend**
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-### Running Tests
+You'll still need the databases running via docker-compose (PostgreSQL, Redis, Neo4j, Elasticsearch).
+
+## Architecture
+
+The system follows a microservices-inspired architecture where the FastAPI backend acts as an API gateway, coordinating between different services:
+
+- **Web Crawler**: Fetches and parses web pages
+- **Analysis Engine**: Processes page data for SEO issues
+- **AI Services**: Content scoring and semantic analysis
+- **Graph Engine**: Link structure analysis in Neo4j
+- **SERP Tracker**: Keyword ranking monitoring
+- **Export Service**: Report generation
+
+Background tasks run via Celery workers, which handle time-intensive operations like crawling entire sites or running Lighthouse audits.
+
+## API
+
+RESTful API with JWT authentication. Interactive docs at `/api/docs`.
+
+Key endpoints:
+- `POST /api/v1/auth/register` - Create account
+- `POST /api/v1/projects` - Create new project
+- `POST /api/v1/crawls/start` - Start website crawl
+- `GET /api/v1/analysis/{crawl_id}` - Get analysis results
+- `GET /api/v1/graph/{crawl_id}` - Get link graph data
+
+Full API documentation is available in the Swagger UI when the application is running.
+
+## Testing
+
+Backend has pytest tests for core functionality:
 
 ```bash
-# Backend tests
 cd backend
 pytest
-
-# Frontend tests
-cd frontend
-npm test
 ```
 
-## 📚 API Documentation
+Tests cover crawling logic, analysis algorithms, API endpoints, and database operations.
 
-Interactive API documentation is available at:
-- Swagger UI: http://localhost:8000/docs
-- ReDoc: http://localhost:8000/redoc
+## Project Status
 
-### Key Endpoints
+This is a portfolio project built to showcase full-stack development skills. It's functional and demonstrates various technologies and architectural patterns, but it's not production-ready for large-scale commercial use.
 
-```
-POST   /api/v1/auth/register       - User registration
-POST   /api/v1/auth/login          - User login
-GET    /api/v1/projects            - List projects
-POST   /api/v1/projects            - Create project
-POST   /api/v1/projects/{id}/crawl - Start crawl
-GET    /api/v1/analysis/{id}       - Get analysis results
-GET    /api/v1/graph/{id}          - Get link graph data
-```
+Current test coverage is around 60%. The focus was on implementing diverse features rather than achieving 100% coverage on everything.
 
-## 🧪 Code Quality
+## Why I Built This
 
-This project follows industry best practices:
+I wanted a project that would demonstrate:
+- Full-stack development (Python backend, TypeScript frontend)
+- Async programming patterns
+- Database design (relational + graph + document stores)
+- Background job processing
+- API design
+- Docker and DevOps practices
+- Integration with third-party APIs
+- Complex algorithm implementation (PageRank, duplicate detection)
 
-- **Type Safety**: Full type hints in Python, TypeScript in frontend
-- **Code Formatting**: Black, isort, Prettier
-- **Linting**: Flake8, ESLint
-- **Testing**: pytest (80%+ coverage target), Jest
-- **Architecture**: Clean Architecture, Domain-Driven Design
-- **Documentation**: Comprehensive docstrings (Google style)
+SEO analysis was chosen because it requires a good mix of web scraping, data processing, and visualization - plus it's actually useful.
 
-## 📊 Database Schema
+## License
 
-### PostgreSQL
-- Users, Projects, Crawl Jobs
-- Pages, Issues, Reports
+MIT License - feel free to use this code for learning or as a starting point for your own projects.
 
-### Neo4j Graph
-- Nodes: Pages
-- Relationships: LINKS_TO
+## Contact
 
-### Elasticsearch
-- Document: Page Content
-- Indexed for full-text search
+**Syed Ali Reza**
+- GitHub: [@syeedalireza](https://github.com/syeedalireza)
 
-## 🤝 Contributing
-
-This is a portfolio project, but suggestions and feedback are welcome!
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
-
-## 📝 License
-
-MIT License - see LICENSE file for details
-
-## 👤 Author
-
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
-
-## 🙏 Acknowledgments
-
-- FastAPI for the amazing framework
-- Neo4j for graph database capabilities
-- Hugging Face for AI model access
-- The open-source community
-
----
-
-Built with ❤️ using modern technologies and best practices.
+Questions or feedback? Open an issue or reach out via GitHub.
