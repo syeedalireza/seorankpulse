@@ -40,6 +40,24 @@ A cutting-edge, enterprise-grade SEO analysis tool built with modern technologie
 - Multi-project management
 - API key management
 
+---
+
+## 🎯 Why SEORankPulse?
+
+### 🚀 **Real-Time Intelligence**
+Unlike traditional SEO tools that give you historical data, SEORankPulse monitors your rankings and site health in real-time, alerting you to issues before they impact your traffic.
+
+### 🤖 **AI-Powered Insights**
+Go beyond basic metrics. Our AI analyzes content semantics, detects topics, performs entity recognition, and gives you actionable recommendations.
+
+### 📊 **Visual Link Intelligence**
+See your site's link structure as a graph. Identify hub pages, find orphaned content, and calculate internal PageRank automatically.
+
+### 🔧 **Self-Hosted & Flexible**
+No data caps, no per-seat pricing. Deploy on your infrastructure and customize to your needs.
+
+---
+
 ## 🛠️ Technology Stack
 
 ### Backend
