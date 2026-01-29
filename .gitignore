@@ -1,0 +1,96 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+venv/
+env/
+ENV/
+.venv
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+*.cover
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Database
+*.db
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# Docker
+docker-compose.override.yml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node / Frontend
+node_modules/
+.next/
+out/
+.pnpm-debug.log*
+.yarn-integrity
+.npm
+
+# Build artifacts
+*.pyc
+*.pyo
+dist/
+build/
+
+# Alembic
+alembic/versions/*.pyc
+
+# Playwright
+.playwright/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Neo4j
+neo4j_data/
+neo4j_logs/
+
+# Elasticsearch
+elasticsearch_data/
+
+# Misc
+.cursor/
+*.bak
+*.tmp
