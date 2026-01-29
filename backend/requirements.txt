@@ -1,0 +1,86 @@
+# Web Framework
+fastapi==0.110.0
+uvicorn[standard]==0.27.1
+python-multipart==0.0.9
+gunicorn==21.2.0
+
+# Database - PostgreSQL
+sqlalchemy[asyncio]==2.0.25
+alembic==1.13.1
+asyncpg==0.29.0
+psycopg2-binary==2.9.9
+
+# Database - Neo4j
+neo4j==5.16.0
+
+# Database - Elasticsearch
+elasticsearch==8.12.0
+
+# Task Queue
+celery[redis]==5.3.6
+redis==5.0.1
+flower==2.0.1
+
+# HTTP Client & Web Scraping
+httpx==0.26.0
+playwright==1.41.2
+beautifulsoup4==4.12.3
+lxml==5.1.0
+scrapy==2.11.0
+requests==2.31.0
+
+# AI/ML - API Clients Only
+huggingface-hub==0.20.3
+google-cloud-language==2.13.1
+openai==1.10.0
+
+# NLP & Data Processing
+spacy==3.7.2
+scikit-learn==1.4.0
+pandas==2.2.0
+numpy==1.26.3
+nltk==3.8.1
+
+# Authentication & Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-dotenv==1.0.1
+pydantic[email]==2.5.3
+pydantic-settings==2.1.0
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2024.1
+aiofiles==23.2.1
+email-validator==2.1.0
+
+# Monitoring & Logging
+python-json-logger==2.0.7
+
+# Testing
+pytest==8.0.0
+pytest-asyncio==0.23.4
+pytest-cov==4.1.0
+httpx==0.26.0
+faker==22.6.0
+
+# Code Quality
+black==24.1.1
+isort==5.13.2
+flake8==7.0.0
+mypy==1.8.0
+pre-commit==3.6.0
+pylint==3.0.3
+
+# Documentation
+mkdocs==1.5.3
+mkdocs-material==9.5.6
+
+# Additional SEO Features
+openpyxl==3.1.2
+pillow==10.2.0
+imagehash==4.3.1
+google-api-python-client==2.119.0
+simhash==2.1.2
+axe-selenium-python==2.1.6
+selenium==4.17.2
